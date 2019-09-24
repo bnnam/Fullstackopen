@@ -1,0 +1,18 @@
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note over Browser:
+
+The browser uses event handller to
+- Prevent the default form submit
+- Add the new note  to the list
+- Rerender the list and send 
+the new note to the serve
+
+The browser posts the new note 
+to the address as JSON data
+
+end note
+
+note over Server:
+The server does not ask for
+redirect
+end note
