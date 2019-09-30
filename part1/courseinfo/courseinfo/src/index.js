@@ -7,17 +7,17 @@ const App = () => {
     const parts = [
         {
             name: 'Fundamentals of React',
-            exercises = 10
+            exercises: 10
         },
 
         {
             name: 'Using props to pass data',
-            exercises = 7
+            exercises: 7
         },
 
         {
             name: 'State of a component',
-            exercises = 14
+            exercises: 14
         }
     ]
 
@@ -27,43 +27,50 @@ const App = () => {
             <h1>{props.course}</h1>
         )
     }
+    const printoutlist(name, exercises){
+        return (
+        <p>{name} {exercises} </p>
+        )
+    }
     const Content = (props) => {
         return (
             <div>
-                {props.forEach (value=>
-                {
-                    console.log(value)
-                    value.name + " " + value.exercises
-                }    
+
+                {parts.map(item => {
+                    console.log(item.name);
+                    { item.forEach(printoutlist) }
+                })
+
+                }
                 )
             }
             </div>
-        )
-    };
+            )
+        };
     const Total = (props) => {
         const totalexercises=0
-        return (
+            return (
             <div>
                 <br></br>
-                {props.forEach(value=>{
-                    totalexercises+=value.exercises
+                {parts.forEach(value => {
+                    totalexercises += value.exercises
                 })}
                 console.log(totalexercises)
                 Number of exercises = {totalexercises}
             </div>
-        )
-    }
-
-
-    return (
+            )
+        }
+    
+    
+        return (
         <div>
-            <Header course={course} />
-            <Content parts={parts} />
-            <Total parts={parts}/>
+                <Header course={course} />
+                <Content parts={parts} />
+                <Total parts={parts} />
 
-        </div>
+            </div>
 
-    )
-}
-
+            )
+        }
+        
 ReactDOM.render(<App />, document.getElementById('root'))
