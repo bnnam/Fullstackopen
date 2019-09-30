@@ -27,50 +27,35 @@ const App = () => {
             <h1>{props.course}</h1>
         )
     }
-    const printoutlist(name, exercises){
+
+    const Content = (props) => {
+        console.log(props)
         return (
-        <p>{name} {exercises} </p>
+            <p>The content of the course:</p>
+              
+        
+
         )
     }
-    const Content = (props) => {
-        return (
-            <div>
-
-                {parts.map(item => {
-                    console.log(item.name);
-                    { item.forEach(printoutlist) }
-                })
-
-                }
-                )
-            }
-            </div>
-            )
-        };
     const Total = (props) => {
-        const totalexercises=0
-            return (
-            <div>
-                <br></br>
-                {parts.forEach(value => {
-                    totalexercises += value.exercises
-                })}
-                console.log(totalexercises)
-                Number of exercises = {totalexercises}
-            </div>
-            )
-        }
-    
-    
+        const totalexercises = 0
         return (
+            <div>
+                Total exercises:
+        </div>
+        )
+    }
+
+
+    return (
         <div>
-                <Header course={course} />
-                <Content parts={parts} />
-                <Total parts={parts} />
+            <Header course={course} />
+            <Content parts={parts} />
+            <Total parts={parts} />
 
-            </div>
+        </div>
 
-            )
-        }
-        
+    )
+}
+
 ReactDOM.render(<App />, document.getElementById('root'))
