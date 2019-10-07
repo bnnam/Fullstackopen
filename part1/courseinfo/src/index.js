@@ -1,29 +1,39 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
-const App = (props) => {
-    const [left, setLeft] = useState(0)
-    const [right, setRight] = useState(0)
-  
+
+const App = () => {
+    const course = {
+        name: 'Half Stack application development',
+        parts: [
+            {
+                name: 'Fundamentals of React',
+                exercises: 10
+            },
+
+            {
+                name: 'Using props to pass data',
+                exercises: 7
+            },
+
+            {
+                name: 'State of a component',
+                exercises: 14
+            }
+        ]
+    }
+
     return (
-      <div>
         <div>
-          {left}
-          <button onClick={() => setLeft(left + 1)}>
-            left
-          </button>
-          <button onClick={() => setRight(right + 1)}>
-            right
-          </button>
-          {right}
+            <h1>{course.name}</h1>
+            <p>{course.parts[0].name} {course.parts[0].exercises}</p>
+            <p>{course.parts[1].name} {course.parts[1].exercises}</p>
+            <p>{course.parts[2].name} {course.parts[2].exercises}</p>
+            <p>Number of exercises {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises}</p>
         </div>
-      </div>
+        
+
     )
-  }
-  
-  
-  
-ReactDOM.render(
-    <App/>,
-    document.getElementById('root')
-)
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
