@@ -1,54 +1,26 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const MostVotes = () => {
-    let sumVote = 0
-    let maxVote = 0
-    let cursorVote = 0
-    for (var i = 0; i < anecdotes.length - 1; i++) {
-        sumVote = sumVote + points[i]
-        if (maxVote < points[i]) {
-            maxVote = points[i]
-            cursorVote = i
-        }
-    }
-    if (sumVote === 0) {
-        return (
-            <div>
-                <h1>You haven't voted yet</h1>
-            </div>
-        )
-    } else {
-        return (
-            <div>
-                <h1>Anecdote with most votes</h1>
-                <p>{anecdotes[cursorVote]}</p>
-                <p>has {maxVote} votes</p>
-            </div>
-        )
-    }
-}
-
 const App = (props) => {
     const [selected, setSelected] = useState(0)
     const anecdoteMaxcursor = props.anecdotes.length - 1
     const randomNumber = Math.floor(Math.random() * (anecdoteMaxcursor + 1))
 
+    
     console.log(randomNumber)
     // console.log(randomNumber)
     const addVote = () => {
         points[randomNumber] += 1
         setSelected(selected + 1)
+        
     }
     return (
         <div>
-            <h1>Anecdote of the day</h1>
             <p>{props.anecdotes[randomNumber]}</p>
             <p> </p>
             <p>has {points[randomNumber]} votes</p>
             <button onClick={() => addVote()}>vote</button>
             <button onClick={() => setSelected(selected + 1)}>next anecdote</button>
-            <MostVotes />
         </div>
     )
 }
