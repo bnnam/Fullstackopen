@@ -45,18 +45,18 @@ const App = () => {
       let sumExercises = 0
       parts.map((part) => {
         console.log(part.exercises)
-        sumExercises += part.exercises
+        sumExercises+=part.exercises
       }
       )
       console.log("sumExercises =", sumExercises)
-      return (
+      return(
         <div><strong>total of {sumExercises} exercises</strong></div>
       )
     }
 
     return (
       <div>
-        <Header />
+        <Header/>
         <Content />
         <Total />
       </div>

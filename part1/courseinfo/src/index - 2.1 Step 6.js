@@ -23,10 +23,10 @@ const App = () => {
     const header = props.course.name
     const parts = props.course.parts
     console.log("parts =", parts)
-    const Header = () => {
+    const Header = (props) => {
       return (
         <div>
-          <h1>{header}</h1>
+          <h1>{props.header}</h1>
         </div>
       )
     }
@@ -41,24 +41,10 @@ const App = () => {
       )
     }
 
-    const Total = () => {
-      let sumExercises = 0
-      parts.map((part) => {
-        console.log(part.exercises)
-        sumExercises += part.exercises
-      }
-      )
-      console.log("sumExercises =", sumExercises)
-      return (
-        <div><strong>total of {sumExercises} exercises</strong></div>
-      )
-    }
-
     return (
       <div>
-        <Header />
+        <Header header={header} />
         <Content />
-        <Total />
       </div>
     )
   }
