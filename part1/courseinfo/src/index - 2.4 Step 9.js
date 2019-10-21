@@ -73,35 +73,35 @@ const App = () => {
 
     const Total = () => {
       let sumExercises = parts.reduce((sum, currentValue) => {
-        console.log("sum", sum)
-        console.log("current value", currentValue.exercises)
-        return sum + currentValue.exercises
-      }, 0)
-
-      return (
-        <div><strong>total of {sumExercises} exercises</strong></div>
-      )
-    }
+        console.log("sum",sum) 
+        console.log("current value",currentValue.exercises)
+        return sum+currentValue.exercises
+      },0)
 
     return (
-      <div>
-        <Header />
-        <Content />
-        <Total />
-      </div>
+      <div><strong>total of {sumExercises} exercises</strong></div>
     )
   }
-  const halfStackCourse = courses.filter(coursef => coursef.id === 1)
-  console.log(halfStackCourse)
-  const nodejsCourse = courses.filter(coursef => coursef.id === 2)
-  console.log(nodejsCourse)
 
   return (
     <div>
-      <Course course={halfStackCourse[0]} />
-      <Course course={nodejsCourse[0]} />
+      <Header />
+      <Content />
+      <Total />
     </div>
   )
+}
+const halfStackCourse = courses.filter(coursef => coursef.id === 1)
+console.log(halfStackCourse)
+const nodejsCourse = courses.filter(coursef => coursef.id === 2)
+console.log(nodejsCourse)
+
+return (
+  <div>
+    <Course course={halfStackCourse[0]} />
+    <Course course={nodejsCourse[0]} />
+  </div>
+)
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
