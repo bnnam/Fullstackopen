@@ -56,6 +56,7 @@ const App = () => {
     const Header = () => {
       return (
         <div>
+          <h1>Web development curriculum</h1>
           <h1>{header}</h1>
         </div>
       )
@@ -72,36 +73,32 @@ const App = () => {
     }
 
     const Total = () => {
-      let sumExercises = parts.reduce((sum, currentValue) => {
-        console.log("sum",sum) 
-        console.log("current value",currentValue.exercises)
-        return sum+currentValue.exercises
-      },0)
+      const sumExercises = parts.reduce((sum, currentValue) => sum + currentValue.exercises, 0)
+
+      return (
+        <div><strong>total of {sumExercises} exercises</strong></div>
+      )
+    }
 
     return (
-      <div><strong>total of {sumExercises} exercises</strong></div>
+      <div>
+        <Header />
+        <Content />
+        <Total />
+      </div>
     )
   }
+  const halfStackCourse = courses.filter(coursef => coursef.id === 1)
+  console.log(halfStackCourse)
+  const nodejsCourse = courses.filter(coursef => coursef.id === 2)
+  console.log(nodejsCourse)
 
   return (
     <div>
-      <Header />
-      <Content />
-      <Total />
+      <Course course={halfStackCourse[0]} />
+      <Course course={nodejsCourse[0]} />
     </div>
   )
-}
-const halfStackCourse = courses.filter(coursef => coursef.id === 1)
-console.log(halfStackCourse)
-const nodejsCourse = courses.filter(coursef => coursef.id === 2)
-console.log(nodejsCourse)
-
-return (
-  <div>
-    <Course course={halfStackCourse[0]} />
-    <Course course={nodejsCourse[0]} />
-  </div>
-)
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

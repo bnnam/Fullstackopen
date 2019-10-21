@@ -12,12 +12,9 @@ const App = () => {
       {
         name: 'Using props to pass data',
         exercises: 7
-      },      {
-        name: 'Using props to pass data test',
-        exercises: 15
-      },
-      {
-        name: 'State of a component',
+      }, 
+      {  
+		name: 'State of a component',
         exercises: 14
       }
     ]
@@ -45,11 +42,8 @@ const App = () => {
     }
 
     const Total = () => {
-      let sumExercises = parts.reduce((sum, currentValue) => {
-        console.log("sum",sum) 
-        console.log("current value",currentValue.exercises)
-        return sum+currentValue.exercises
-      },0)
+      const sumExercises = parts.reduce((sum, currentValue) => sum + currentValue.exercises, 0)
+
 
       return (
         <div><strong>total of {sumExercises} exercises</strong></div>
