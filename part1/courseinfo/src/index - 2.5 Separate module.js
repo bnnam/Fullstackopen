@@ -55,6 +55,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Web development curriculum</h1>
       <Course course={halfStackCourse[0]} />
       <Course course={nodejsCourse[0]} />
     </div>
