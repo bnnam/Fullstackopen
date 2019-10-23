@@ -14,9 +14,8 @@ const App = () => {
 
   const addName = (event) => {
       event.preventDefault()
-      const addedName=newName
       console.log('button clicked', event.target)
-      console.log('addedName ', addedName)
+      console.log('addedName ', newName)
       const person={name:addedName}
       //const person={name:event.target.value.toString()}
       setPersons(persons.concat(person))
